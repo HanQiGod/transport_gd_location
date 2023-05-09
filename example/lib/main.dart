@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     // initPlatformState();
-    openService();
+    initSdk();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -70,8 +70,8 @@ class _MyAppState extends State<MyApp> {
     try {
       ServiceConfig serviceConfig = ServiceConfig(
         appId: Platform.isAndroid
-            ? "com.hswl.gd_location.gd_location_example"
-            : "com.hswl.gdlocation.gdLocationExample",
+            ? "com.hswl.transport_gd_location.transport_gd_location_example"
+            : "com.hswl.transportgdlocation.transportGdLocationExample",
         appSecurity: Platform.isAndroid
             ? "cd5a822984cd48c3a9a92c09e0868cb6b137e6bf336d456fa1b7696308449f05"
             : "fd6a81f2a41b4ea891269067e7eb4b68299ca62797ab4c348274f13d84d580bc",
