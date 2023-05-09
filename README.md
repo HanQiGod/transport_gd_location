@@ -2,14 +2,4 @@
 
 基于 Flutter 封装的网络货运信息交互系统位置信息上传插件(基于高德地图，iOS和Android)
 
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
+为进一步贯彻落实《交通运输部办公厅关于进一步做好 网络平台道路货物运输信息化监测工作的通知》(交办运函 〔2020〕1520 号)的部署要求，加强网络货运信息化监测， 实施人流、车流、信息流闭环验证，我院在充分总结驾驶员 位置信息插件 1.0 运行经验的基础上，研发了驾驶员位置信 息插件(SDK)2.0 版本。请有关单位按照 2.0 版本的规范要 求进行升级。驾驶员位置信息插件(SDK)2.0 版本技术规范 见附件。

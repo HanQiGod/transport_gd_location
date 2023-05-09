@@ -15,8 +15,20 @@ Pod::Spec.new do |s|
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.public_header_files = 'Classes/**/*.h'
+  # 指定文件位置
+  s.ios.vendored_frameworks = 'Frameworks/MapManager.framework'
+  s.preserve_path = 'Frameworks/*'
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
+  s.static_framework = true
+
+  # 地图相关
+  s.dependency 'AMapLocation'
+  s.dependency 'AMapSearch'
+  # GMObjC 国密算法 SDK
+  s.dependency 'GMObjC'
+  # 数据转模型
+  s.dependency 'MJExtension'
 
   # Flutter.framework does not contain a i386 slice.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }

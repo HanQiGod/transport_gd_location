@@ -4,6 +4,7 @@ version '1.0'
 buildscript {
     repositories {
         google()
+        jcenter()
         mavenCentral()
     }
 
@@ -15,7 +16,11 @@ buildscript {
 rootProject.allprojects {
     repositories {
         google()
+        jcenter()
         mavenCentral()
+        flatDir {
+            dirs project(":gd_location").file("libs")
+        }
     }
 }
 
@@ -32,4 +37,14 @@ android {
     defaultConfig {
         minSdkVersion 16
     }
+}
+
+dependencies {
+    implementation 'com.lzy.net:okgo:3.0.4'
+    implementation 'com.alibaba:fastjson:1.2.61'
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.55'
+    implementation 'org.apache.commons:commons-lang3:3.5'
+    implementation 'com.amap.api:location:latest.integration'
+    implementation(name: 'locationgd-androidx_2.1.1', ext: 'aar')
+    implementation 'com.android.support:appcompat-v7:26.0.0'
 }

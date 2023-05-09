@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:transport_gd_location/transport_gd_location.dart';
+
+import 'package:transport_gd_location/model/result_model.dart';
+import 'package:transport_gd_location/model/service_config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,7 +27,8 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
+    // initPlatformState();
+    openService();
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -46,6 +52,40 @@ class _MyAppState extends State<MyApp> {
       _platformVersion = platformVersion;
     });
   }
+
+  Future<void> initSdk() async {
+    bool success;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    // We also handle the message potentially returning null.
+    try {
+      success = await _transportGdLocationPlugin.initSdk(gdAppKey: "sdfsdf") ?? false;
+    } on PlatformException {
+      success = false;
+    }
+    print("初始化 - 结果 = $success");
+  }
+
+  Future<void> openService() async {
+    ResultModel? resultModel;
+    try {
+      ServiceConfig serviceConfig = ServiceConfig(
+        appId: Platform.isAndroid
+            ? "com.hswl.gd_location.gd_location_example"
+            : "com.hswl.gdlocation.gdLocationExample",
+        appSecurity: Platform.isAndroid
+            ? "cd5a822984cd48c3a9a92c09e0868cb6b137e6bf336d456fa1b7696308449f05"
+            : "fd6a81f2a41b4ea891269067e7eb4b68299ca62797ab4c348274f13d84d580bc",
+        enterpriseSenderCode: "10002",
+        environment: "debug",
+      );
+      resultModel =
+      await _transportGdLocationPlugin.openService(serviceConfig: serviceConfig);
+    } catch (e) {
+      resultModel = null;
+    }
+    print("授权 - 结果 = ${resultModel?.toJson()}");
+  }
+
 
   @override
   Widget build(BuildContext context) {
