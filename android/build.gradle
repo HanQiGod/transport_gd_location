@@ -19,7 +19,7 @@ rootProject.allprojects {
         jcenter()
         mavenCentral()
         flatDir {
-            dirs project(":gd_location").file("libs")
+            dirs project(":transport_gd_location").file("libs")
         }
     }
 }
