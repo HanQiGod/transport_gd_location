@@ -1,7 +1,7 @@
 name: transport_gd_location
 description: 基于 Flutter 封装的网络货运信息交互系统位置信息上传插件(基于高德地图，iOS和Android)
 version: 0.0.1
-homepage: https://gitee.com/SuperHeroCat/gd_location
+homepage: https://github.com/HanQiGod/transport_gd_location.git
 
 environment:
   sdk: '>=2.19.3 <3.0.0'
